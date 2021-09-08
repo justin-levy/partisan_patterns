@@ -15,7 +15,7 @@ const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
 // "https://github.com/deldersveld/topojson/blob/master/countries/us-states/AL-01-alabama-counties.json";
 // "https://raw.githubusercontent.com/kthotav/TopoJSON-Maps/master/usa/usa-states/alabama/al-counties.json";
 
-const MapChart = () => {
+const MapChart = ({ setTooltipContent }) => {
   const [alabamaData, setAlabamaData] = useState([]);
   const [iowaData, setIowaData] = useState([]);
   const [year, setYear] = useState("1948 - 1952");
@@ -50,6 +50,8 @@ const MapChart = () => {
   function handleMoveEnd(position) {
     setPosition(position);
   }
+
+  const [delayHandler, setDelayHandler] = useState(null);
 
   return (
     <>
@@ -106,7 +108,7 @@ const MapChart = () => {
 
       <div>{year}</div>
 
-      <ComposableMap projection="geoAlbersUsa">
+      <ComposableMap data-tip="" projection="geoAlbersUsa">
         <ZoomableGroup
           zoom={position.zoom}
           center={position.coordinates}
@@ -126,6 +128,34 @@ const MapChart = () => {
                     key={geo.rsmKey}
                     geography={geo}
                     fill={colorScale(cur ? cur.X : "#0000FF")}
+                    onMouseEnter={() => {
+                      setTooltipContent("");
+                      // setDelayHandler(
+                      // setTimeout(() => {
+                      setTooltipContent(
+                        `${geo.properties.name} : ${cur && cur.X}`
+                      );
+                      // }, 100)
+                      // );
+                    }}
+                    onMouseLeave={() => {
+                      // clearTimeout(delayHandler);
+                      setTooltipContent("");
+                    }}
+                    style={{
+                      // default: {
+                      //   fill: "#D6D6DA",
+                      //   outline: "none"
+                      // },
+                      hover: {
+                        fill: "#F53",
+                        outline: "none",
+                      },
+                      pressed: {
+                        fill: "#E42",
+                        outline: "none",
+                      },
+                    }}
                   />
                 );
               })
