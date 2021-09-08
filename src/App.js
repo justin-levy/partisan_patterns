@@ -10,6 +10,7 @@ function App() {
     <div>
       <MapChart setTooltipContent={setContent} />
       <ReactTooltip>{content}</ReactTooltip>
+
       {/* <Tooltip
         placement="left"
         overlay={content}
