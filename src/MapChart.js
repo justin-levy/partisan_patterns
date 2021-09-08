@@ -23,6 +23,9 @@ const MapChart = ({ setTooltipContent }) => {
   const [high, setHigh] = useState(100);
 
   useEffect(() => {
+    setAlabamaData([]);
+    setIowaData([]);
+
     csv(`Alabama/President/${year}.csv`).then((counties) => {
       setAlabamaData(counties);
     });
