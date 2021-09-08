@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/partisan_patterns/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/partisan_patterns/static/js/main.5108f0b9.chunk.js",
-    "main.js.map": "/partisan_patterns/static/js/main.5108f0b9.chunk.js.map",
+    "main.js": "/partisan_patterns/static/js/main.d7334950.chunk.js",
+    "main.js.map": "/partisan_patterns/static/js/main.d7334950.chunk.js.map",
     "runtime-main.js": "/partisan_patterns/static/js/runtime-main.8db81ef3.js",
     "runtime-main.js.map": "/partisan_patterns/static/js/runtime-main.8db81ef3.js.map",
     "static/css/2.f2512455.chunk.css": "/partisan_patterns/static/css/2.f2512455.chunk.css",
@@ -18,6 +18,6 @@
     "static/css/2.f2512455.chunk.css",
     "static/js/2.ae0d8aed.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.5108f0b9.chunk.js"
+    "static/js/main.d7334950.chunk.js"
   ]
 }
