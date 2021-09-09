@@ -7,7 +7,7 @@ const SetRange = ({ low, high, setLow, setHigh }) => {
   return (
     <>
       <div className="red">
-        <Slider min={-200} max={0} value={low} onChange={(e) => setLow(e)} />
+        <Slider min={0} max={200} value={-low} onChange={(e) => setLow(-e)} />
       </div>
       <div className="blue">
         <Slider min={0} max={200} value={high} onChange={(e) => setHigh(e)} />
