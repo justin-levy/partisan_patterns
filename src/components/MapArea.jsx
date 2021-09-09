@@ -46,7 +46,7 @@ const MapArea = ({
     .domain([low, 0, high])
     .range(["red", "white", "blue"]);
 
-  const [alabamaData, iowaData] = stateData;
+  const [alabamaData, iowaData, alabamaNextData] = stateData;
 
   return (
     <ComposableMap data-tip="" projection="geoAlbersUsa">
@@ -59,9 +59,10 @@ const MapArea = ({
           {({ geographies }) =>
             geographies.map((geo) => {
               const cur =
-                alabamaData.find(
-                  (s) => parseInt(s.fips) === parseInt(geo.id)
-                ) ||
+                alabamaData.find((s) => parseInt(s.fips) === parseInt(geo.id)) -
+                  alabamaNextData.find(
+                    (s) => parseInt(s.fips) === parseInt(geo.id)
+                  ) ||
                 iowaData.find((s) => parseInt(s.fips) === parseInt(geo.id));
               return (
                 <Geography

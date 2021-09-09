@@ -8,8 +8,10 @@ import MapArea from "./components/MapArea";
 
 const MapChart = ({ setTooltipContent }) => {
   const [alabamaData, setAlabamaData] = useState([]);
+  const [alabamaNextData, setAlabamaNextData] = useState([]);
   const [iowaData, setIowaData] = useState([]);
   const [year, setYear] = useState("1948");
+  const [nextYear, setNextYear] = useState("1952");
   const [low, setLow] = useState(-100);
   const [high, setHigh] = useState(100);
 
@@ -20,10 +22,13 @@ const MapChart = ({ setTooltipContent }) => {
     csv(`noshift/Alabama/President/${year}.csv`).then((counties) => {
       setAlabamaData(counties);
     });
+    csv(`noshift/Alabama/President/${nextYear}.csv`).then((counties) => {
+      setAlabamaNextData(counties);
+    });
     // csv(`Iowa/President/${year}.csv`).then((counties) => {
     //   setIowaData(counties);
     // });
-  }, [year]);
+  }, [year, nextYear]);
 
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
 
@@ -41,7 +46,7 @@ const MapChart = ({ setTooltipContent }) => {
     setPosition(position);
   }
 
-  const stateData = [alabamaData, iowaData];
+  const stateData = [alabamaData, iowaData, alabamaNextData];
 
   return (
     <>
@@ -68,6 +73,7 @@ const MapChart = ({ setTooltipContent }) => {
           <h2 style={{ textAlign: "center" }}>{year}</h2>
 
           <SelectYear year={year} setYear={setYear} />
+          <SelectYear year={nextYear} setYear={setNextYear} />
           <SetRange low={low} high={high} setLow={setLow} setHigh={setHigh} />
 
           <button onClick={handleZoomIn}>
