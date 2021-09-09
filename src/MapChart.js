@@ -67,7 +67,7 @@ const MapChart = ({ setTooltipContent }) => {
         >
           <h2 style={{ textAlign: "center" }}>{year}</h2>
 
-          <SelectYear setYear={setYear} />
+          <SelectYear year={year} setYear={setYear} />
           <SetRange low={low} high={high} setLow={setLow} setHigh={setHigh} />
 
           <button onClick={handleZoomIn}>
