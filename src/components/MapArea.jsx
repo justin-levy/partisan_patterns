@@ -59,21 +59,25 @@ const MapArea = ({
           {({ geographies }) =>
             geographies.map((geo) => {
               const cur =
-                alabamaData.find((s) => parseInt(s.fips) === parseInt(geo.id)) -
-                  alabamaNextData.find(
-                    (s) => parseInt(s.fips) === parseInt(geo.id)
-                  ) ||
+                alabamaData.find(
+                  (s) => parseInt(s.fips) === parseInt(geo.id)
+                ) ||
                 iowaData.find((s) => parseInt(s.fips) === parseInt(geo.id));
+              const next = alabamaNextData.find(
+                (s) => parseInt(s.fips) === parseInt(geo.id)
+              );
               return (
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill={colorScale(cur ? cur.data : "#0000FF")}
+                  fill={colorScale(
+                    cur ? (next ? next.data - cur.data : cur.data) : "#0000FF"
+                  )}
                   onMouseEnter={() => {
                     setTooltipContent("");
                     setTooltipContent(
                       `${geo.properties.name}, ${getStateFromId(geo.id)} : ${
-                        cur && cur.data
+                        cur && (next ? next.data - cur.data : cur.data)
                       }`
                     );
                     // console.log(geo);
