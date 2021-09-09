@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/partisan_patterns/static/css/main.3149c178.chunk.css",
-    "main.js": "/partisan_patterns/static/js/main.5d2cbe67.chunk.js",
-    "main.js.map": "/partisan_patterns/static/js/main.5d2cbe67.chunk.js.map",
+    "main.js": "/partisan_patterns/static/js/main.57fef4e8.chunk.js",
+    "main.js.map": "/partisan_patterns/static/js/main.57fef4e8.chunk.js.map",
     "runtime-main.js": "/partisan_patterns/static/js/runtime-main.8db81ef3.js",
     "runtime-main.js.map": "/partisan_patterns/static/js/runtime-main.8db81ef3.js.map",
     "static/css/2.1a7362ed.chunk.css": "/partisan_patterns/static/css/2.1a7362ed.chunk.css",
-    "static/js/2.0d8fdf35.chunk.js": "/partisan_patterns/static/js/2.0d8fdf35.chunk.js",
-    "static/js/2.0d8fdf35.chunk.js.map": "/partisan_patterns/static/js/2.0d8fdf35.chunk.js.map",
+    "static/js/2.3b2dfe96.chunk.js": "/partisan_patterns/static/js/2.3b2dfe96.chunk.js",
+    "static/js/2.3b2dfe96.chunk.js.map": "/partisan_patterns/static/js/2.3b2dfe96.chunk.js.map",
     "index.html": "/partisan_patterns/index.html",
     "static/css/2.1a7362ed.chunk.css.map": "/partisan_patterns/static/css/2.1a7362ed.chunk.css.map",
     "static/css/main.3149c178.chunk.css.map": "/partisan_patterns/static/css/main.3149c178.chunk.css.map",
-    "static/js/2.0d8fdf35.chunk.js.LICENSE.txt": "/partisan_patterns/static/js/2.0d8fdf35.chunk.js.LICENSE.txt"
+    "static/js/2.3b2dfe96.chunk.js.LICENSE.txt": "/partisan_patterns/static/js/2.3b2dfe96.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8db81ef3.js",
     "static/css/2.1a7362ed.chunk.css",
-    "static/js/2.0d8fdf35.chunk.js",
+    "static/js/2.3b2dfe96.chunk.js",
     "static/css/main.3149c178.chunk.css",
-    "static/js/main.5d2cbe67.chunk.js"
+    "static/js/main.57fef4e8.chunk.js"
   ]
 }
