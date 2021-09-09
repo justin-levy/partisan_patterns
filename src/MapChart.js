@@ -23,19 +23,19 @@ const MapChart = ({ setTooltipContent }) => {
     setIowaData([]);
     setIowaNextData([]);
 
-    csv(`noshift/Alabama/President/${year}.csv`).then((counties) => {
+    csv(`Alabama/President/${year}.csv`).then((counties) => {
       setAlabamaData(counties);
     });
     if (year !== nextYear) {
-      csv(`noshift/Alabama/President/${nextYear}.csv`).then((counties) => {
+      csv(`Alabama/President/${nextYear}.csv`).then((counties) => {
         setAlabamaNextData(counties);
       });
     }
-    csv(`noshift/Iowa/President/${year}.csv`).then((counties) => {
+    csv(`Iowa/President/${year}.csv`).then((counties) => {
       setIowaData(counties);
     });
     if (year !== nextYear) {
-      csv(`noshift/Iowa/President/${nextYear}.csv`).then((counties) => {
+      csv(`Iowa/President/${nextYear}.csv`).then((counties) => {
         setIowaNextData(counties);
       });
     }
@@ -88,30 +88,11 @@ const MapChart = ({ setTooltipContent }) => {
           <SetRange low={low} high={high} setLow={setLow} setHigh={setHigh} />
 
           <button onClick={handleZoomIn}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="3"
-            >
-              <line x1="12" y1="5" x2="12" y2="19" />
-              <line x1="5" y1="12" x2="19" y2="12" />
-            </svg>
+            <i className="fas fa-plus" />
           </button>
 
           <button onClick={handleZoomOut}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="3"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-            </svg>
+            <i className="fas fa-minus" />
           </button>
         </Col>
       </Row>

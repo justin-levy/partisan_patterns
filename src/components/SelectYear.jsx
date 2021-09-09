@@ -7,7 +7,7 @@ const SelectYear = ({ year, setYear }) => {
       <Form.Group>
         <Form.Control
           type="number"
-          default={year}
+          value={year}
           onChange={(e) => {
             setYear(e.target.value);
           }}
