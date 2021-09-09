@@ -5,7 +5,6 @@ const SelectYear = ({ setYear }) => {
   return (
     <Form>
       <Form.Group>
-        <Form.Label>Custom select</Form.Label>
         <Form.Control
           as="select"
           custom

@@ -9,6 +9,31 @@ import { scaleLinear } from "d3-scale";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
 
+const getStateFromId = (fips) => {
+  if (fips[0] == "0") {
+    if (fips[1] == "1") {
+      return "Alabama";
+    } else if (fips[1] == "2") {
+      return "Alaska";
+    } else if (fips[1] == "5") {
+      return "Arkansas";
+    }
+  } else if (fips[0] == "1") {
+    if (fips[1] == "9") {
+      return "Iowa";
+    } else if (fips[1] == "3") {
+      return "Georgia";
+    }
+  } else if (fips[0] == "2") {
+    if (fips[1] == "2") {
+      return "Louisiana";
+    } else if (fips[1] == "8") {
+      return "Mississippi";
+    }
+  }
+  return `${fips[0]}${fips[1]}`;
+};
+
 const MapArea = ({
   setTooltipContent,
   low,
@@ -46,8 +71,11 @@ const MapArea = ({
                   onMouseEnter={() => {
                     setTooltipContent("");
                     setTooltipContent(
-                      `${geo.properties.name} : ${cur && cur.X}`
+                      `${geo.properties.name}, ${getStateFromId(geo.id)} : ${
+                        cur && cur.X
+                      }`
                     );
+                    // console.log(geo);
                   }}
                   onMouseLeave={() => {
                     setTooltipContent("");
