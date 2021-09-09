@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,WACE,kBACF,CAEA,cACE,mBACF","file":"main.a4b6bcc5.chunk.css","sourcesContent":[".layoutRow {\n  margin: 0 !important;\n}\n\n.layoutColumn {\n  padding: 0 !important;\n}\n"]}
