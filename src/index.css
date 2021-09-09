@@ -5,3 +5,11 @@
 .layoutColumn {
   padding: 0 !important;
 }
+
+.red .rangeslider-horizontal .rangeslider__fill {
+  background-color: red !important;
+}
+
+.blue .rangeslider-horizontal .rangeslider__fill {
+  background-color: blue !important;
+}

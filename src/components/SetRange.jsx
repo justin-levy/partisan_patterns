@@ -1,26 +1,18 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+import Slider from "react-rangeslider";
+
+import "react-rangeslider/lib/index.css";
 
 const SetRange = ({ low, high, setLow, setHigh }) => {
   return (
-    <Form>
-      <Form.Group>
-        <Form.Label>Low</Form.Label>
-        <Form.Control
-          type="number"
-          defaultValue={low}
-          onChange={(e) => setLow(e.target.value)}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>High</Form.Label>
-        <Form.Control
-          type="number"
-          defaultValue={high}
-          onChange={(e) => setHigh(e.target.value)}
-        />
-      </Form.Group>
-    </Form>
+    <>
+      <div className="red">
+        <Slider min={-200} max={0} value={low} onChange={(e) => setLow(e)} />
+      </div>
+      <div className="blue">
+        <Slider min={0} max={200} value={high} onChange={(e) => setHigh(e)} />
+      </div>
+    </>
   );
 };
 
