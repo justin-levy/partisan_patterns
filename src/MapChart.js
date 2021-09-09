@@ -1,20 +1,10 @@
 import React, { useState, useEffect } from "react";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  ZoomableGroup,
-} from "react-simple-maps";
-import { scaleLinear } from "d3-scale";
 import { csv } from "d3-fetch";
+import { Row } from "react-bootstrap";
 
 import SelectYear from "./components/SelectYear";
 import SetRange from "./components/SetRange";
-
-const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
-// const geoUrl =
-// "https://github.com/deldersveld/topojson/blob/master/countries/us-states/AL-01-alabama-counties.json";
-// "https://raw.githubusercontent.com/kthotav/TopoJSON-Maps/master/usa/usa-states/alabama/al-counties.json";
+import MapArea from "./components/MapArea";
 
 const MapChart = ({ setTooltipContent }) => {
   const [alabamaData, setAlabamaData] = useState([]);
@@ -35,10 +25,6 @@ const MapChart = ({ setTooltipContent }) => {
     });
   }, [year]);
 
-  const colorScale = scaleLinear()
-    .domain([low, 0, high])
-    .range(["red", "white", "blue"]);
-
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
 
   function handleZoomIn() {
@@ -55,6 +41,8 @@ const MapChart = ({ setTooltipContent }) => {
     setPosition(position);
   }
 
+  const stateData = [alabamaData, iowaData];
+
   return (
     <>
       <SelectYear setYear={setYear} />
@@ -62,56 +50,16 @@ const MapChart = ({ setTooltipContent }) => {
 
       <div>{year}</div>
 
-      <ComposableMap data-tip="" projection="geoAlbersUsa">
-        <ZoomableGroup
-          zoom={position.zoom}
-          center={position.coordinates}
-          onMoveEnd={handleMoveEnd}
-        >
-          <Geographies geography={geoUrl}>
-            {({ geographies }) =>
-              geographies.map((geo) => {
-                const cur =
-                  alabamaData.find(
-                    (s) => parseInt(s.fips) === parseInt(geo.id)
-                  ) ||
-                  iowaData.find((s) => parseInt(s.fips) === parseInt(geo.id));
-                //  const max = cur.find((s) => max > s.unemployment_rate);
-                return (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    fill={colorScale(cur ? cur.X : "#0000FF")}
-                    onMouseEnter={() => {
-                      setTooltipContent("");
-                      setTooltipContent(
-                        `${geo.properties.name} : ${cur && cur.X}`
-                      );
-                    }}
-                    onMouseLeave={() => {
-                      setTooltipContent("");
-                    }}
-                    style={{
-                      // default: {
-                      //   fill: "#D6D6DA",
-                      //   outline: "none"
-                      // },
-                      hover: {
-                        fill: "#F53",
-                        outline: "none",
-                      },
-                      pressed: {
-                        fill: "#E42",
-                        outline: "none",
-                      },
-                    }}
-                  />
-                );
-              })
-            }
-          </Geographies>
-        </ZoomableGroup>
-      </ComposableMap>
+      <Row>
+        <MapArea
+          setTooltipContent={setTooltipContent}
+          low={low}
+          high={high}
+          position={position}
+          handleMoveEnd={handleMoveEnd}
+          stateData={stateData}
+        />
+      </Row>
       <div className="controls">
         <button onClick={handleZoomIn}>
           <svg
