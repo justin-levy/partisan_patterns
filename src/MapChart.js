@@ -9,7 +9,7 @@ import MapArea from "./components/MapArea";
 const MapChart = ({ setTooltipContent }) => {
   const [alabamaData, setAlabamaData] = useState([]);
   const [iowaData, setIowaData] = useState([]);
-  const [year, setYear] = useState("1948 - 1952");
+  const [year, setYear] = useState("1948");
   const [low, setLow] = useState(-100);
   const [high, setHigh] = useState(100);
 
@@ -17,12 +17,12 @@ const MapChart = ({ setTooltipContent }) => {
     setAlabamaData([]);
     setIowaData([]);
 
-    csv(`Alabama/President/${year}.csv`).then((counties) => {
+    csv(`noshift/Alabama/President/${year}.csv`).then((counties) => {
       setAlabamaData(counties);
     });
-    csv(`Iowa/President/${year}.csv`).then((counties) => {
-      setIowaData(counties);
-    });
+    // csv(`Iowa/President/${year}.csv`).then((counties) => {
+    //   setIowaData(counties);
+    // });
   }, [year]);
 
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });

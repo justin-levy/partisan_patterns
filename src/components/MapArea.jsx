@@ -67,12 +67,12 @@ const MapArea = ({
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill={colorScale(cur ? cur.X : "#0000FF")}
+                  fill={colorScale(cur ? cur.data : "#0000FF")}
                   onMouseEnter={() => {
                     setTooltipContent("");
                     setTooltipContent(
                       `${geo.properties.name}, ${getStateFromId(geo.id)} : ${
-                        cur && cur.X
+                        cur && cur.data
                       }`
                     );
                     // console.log(geo);
