@@ -17,14 +17,17 @@ const MapChart = ({ setTooltipContent }) => {
 
   useEffect(() => {
     setAlabamaData([]);
+    setNextAlabamaData([]);
     setIowaData([]);
 
     csv(`noshift/Alabama/President/${year}.csv`).then((counties) => {
       setAlabamaData(counties);
     });
-    csv(`noshift/Alabama/President/${nextYear}.csv`).then((counties) => {
-      setAlabamaNextData(counties);
-    });
+    if (year !== nextYear) {
+      csv(`noshift/Alabama/President/${nextYear}.csv`).then((counties) => {
+        setAlabamaNextData(counties);
+      });
+    }
     // csv(`Iowa/President/${year}.csv`).then((counties) => {
     //   setIowaData(counties);
     // });
