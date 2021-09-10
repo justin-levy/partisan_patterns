@@ -11,6 +11,11 @@ import getStateFromId from "../functions/getStateFromId";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
 
+const findMatch = (data, geo) => {
+  if (!data) return;
+  return data.find((s) => parseInt(s.fips) === parseInt(geo.id));
+};
+
 const MapArea = ({
   setTooltipContent,
   low,
@@ -23,7 +28,7 @@ const MapArea = ({
     .domain([low, 0, high])
     .range(["red", "white", "blue"]);
 
-  const [alabamaData, iowaData, alabamaNextData, iowaNextData] = stateData;
+  const [data, nextData] = stateData;
 
   return (
     <ComposableMap data-tip="" projection="geoAlbersUsa">
@@ -36,15 +41,10 @@ const MapArea = ({
           {({ geographies }) =>
             geographies.map((geo) => {
               const cur =
-                alabamaData.find(
-                  (s) => parseInt(s.fips) === parseInt(geo.id)
-                ) ||
-                iowaData.find((s) => parseInt(s.fips) === parseInt(geo.id));
+                findMatch(data[0].alabama, geo) || findMatch(data[0].iowa, geo);
               const next =
-                alabamaNextData.find(
-                  (s) => parseInt(s.fips) === parseInt(geo.id)
-                ) ||
-                iowaNextData.find((s) => parseInt(s.fips) === parseInt(geo.id));
+                findMatch(nextData[0].alabama, geo) ||
+                findMatch(nextData[0].iowa, geo);
               return (
                 <Geography
                   key={geo.rsmKey}

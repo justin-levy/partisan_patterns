@@ -7,10 +7,8 @@ import SetRange from "./components/SetRange";
 import MapArea from "./components/MapArea";
 
 const MapChart = ({ setTooltipContent }) => {
-  const [alabamaData, setAlabamaData] = useState([]);
-  const [alabamaNextData, setAlabamaNextData] = useState([]);
-  const [iowaData, setIowaData] = useState([]);
-  const [iowaNextData, setIowaNextData] = useState([]);
+  const [data, setData] = useState({});
+  const [nextData, setNextData] = useState({});
 
   const [year, setYear] = useState("1948");
   const [nextYear, setNextYear] = useState("1952");
@@ -18,25 +16,23 @@ const MapChart = ({ setTooltipContent }) => {
   const [high, setHigh] = useState(100);
 
   useEffect(() => {
-    setAlabamaData([]);
-    setAlabamaNextData([]);
-    setIowaData([]);
-    setIowaNextData([]);
+    setData([{}]);
+    setNextData([{}]);
 
     csv(`Alabama/President/${year}.csv`).then((counties) => {
-      setAlabamaData(counties);
+      setData((prevData) => [{ ...prevData[0], alabama: counties }]);
     });
     if (year !== nextYear) {
       csv(`Alabama/President/${nextYear}.csv`).then((counties) => {
-        setAlabamaNextData(counties);
+        setNextData((prevData) => [{ ...prevData[0], alabama: counties }]);
       });
     }
     csv(`Iowa/President/${year}.csv`).then((counties) => {
-      setIowaData(counties);
+      setData((prevData) => [{ ...prevData[0], iowa: counties }]);
     });
     if (year !== nextYear) {
       csv(`Iowa/President/${nextYear}.csv`).then((counties) => {
-        setIowaNextData(counties);
+        setNextData((prevData) => [{ ...prevData[0], iowa: counties }]);
       });
     }
   }, [year, nextYear]);
@@ -57,7 +53,7 @@ const MapChart = ({ setTooltipContent }) => {
     setPosition(position);
   }
 
-  const stateData = [alabamaData, iowaData, alabamaNextData, iowaNextData];
+  const stateData = [data, nextData];
 
   return (
     <>
