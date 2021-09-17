@@ -7,23 +7,52 @@ import {
 } from "react-simple-maps";
 import { scaleLinear } from "d3-scale";
 
+import { geoUrl } from "../_context";
 import getStateFromId from "../functions/getStateFromId";
 
-const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
-
-const findMatch = (data, geo) => {
+const findMatch = (data, geoId) => {
   if (!data) return;
-  return data.find((s) => parseInt(s.fips) === parseInt(geo.id));
+  return data.find((s) => parseInt(s.fips) === parseInt(geoId));
 };
 
-const MapArea = ({
-  setTooltipContent,
-  low,
-  high,
-  position,
-  handleMoveEnd,
-  stateData,
-}) => {
+// use state name instead of dealing with fips
+const stateMatch = (data, geoId) => {
+  if (!data) return;
+
+  if (geoId[0] === "0") {
+    if (geoId[1] === "1") {
+      return findMatch(data[0].alabama, geoId);
+    }
+  } else if (geoId[0] === "1") {
+    if (geoId[1] === "9") {
+      return findMatch(data[0].iowa, geoId);
+    }
+  }
+  return;
+};
+
+const tooltipStyle = {
+  hover: {
+    fill: "#F53",
+    outline: "none",
+  },
+  pressed: {
+    fill: "#E42",
+    outline: "none",
+  },
+};
+
+const MapArea = (props) => {
+  const {
+    setTooltipContent,
+    low,
+    high,
+    position,
+    handleMoveEnd,
+    stateData,
+    showShifts,
+  } = props;
+
   const colorScale = scaleLinear()
     .domain([low, 0, high])
     .range(["red", "white", "blue"]);
@@ -40,40 +69,39 @@ const MapArea = ({
         <Geographies geography={geoUrl}>
           {({ geographies }) =>
             geographies.map((geo) => {
-              const cur =
-                findMatch(data[0].alabama, geo) || findMatch(data[0].iowa, geo);
-              const next =
-                findMatch(nextData[0].alabama, geo) ||
-                findMatch(nextData[0].iowa, geo);
+              const countyName = geo.properties.name;
+              const stateName = getStateFromId(geo.id);
+
+              const cur = stateMatch(data, geo.id);
+              const next = stateMatch(nextData, geo.id);
+
+              // redo this section to use checkbox
+              const geoData = showShifts
+                ? cur
+                  ? next
+                    ? next.data - cur.data
+                    : // : cur.data
+                      undefined
+                  : undefined
+                : cur
+                ? cur.data
+                : undefined;
+
               return (
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill={colorScale(
-                    cur ? (next ? next.data - cur.data : cur.data) : "#0000FF"
-                  )}
+                  fill={colorScale(geoData ? geoData : "#0000FF")}
                   onMouseEnter={() => {
                     setTooltipContent("");
                     setTooltipContent(
-                      `${geo.properties.name}, ${getStateFromId(geo.id)} : ${
-                        cur && (next ? next.data - cur.data : cur.data)
-                      }`
+                      `${countyName}, ${stateName} : ${geoData && geoData}`
                     );
-                    // console.log(geo);
                   }}
                   onMouseLeave={() => {
                     setTooltipContent("");
                   }}
-                  style={{
-                    hover: {
-                      fill: "#F53",
-                      outline: "none",
-                    },
-                    pressed: {
-                      fill: "#E42",
-                      outline: "none",
-                    },
-                  }}
+                  style={tooltipStyle}
                 />
               );
             })

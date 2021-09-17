@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { csv } from "d3-fetch";
 import { Row, Col } from "react-bootstrap";
+import { Checkbox } from "pretty-checkbox-react";
+import "pretty-checkbox/dist/pretty-checkbox.min.css";
 
 import SelectYear from "./components/SelectYear";
 import SetRange from "./components/SetRange";
@@ -9,9 +11,10 @@ import MapArea from "./components/MapArea";
 const MapChart = ({ setTooltipContent }) => {
   const [data, setData] = useState({});
   const [nextData, setNextData] = useState({});
+  const [showShifts, setShowShifts] = useState(true);
 
-  const [year, setYear] = useState("1948");
-  const [nextYear, setNextYear] = useState("1952");
+  const [year, setYear] = useState(1948);
+  const [nextYear, setNextYear] = useState(1952);
   const [low, setLow] = useState(-100);
   const [high, setHigh] = useState(100);
 
@@ -70,6 +73,7 @@ const MapChart = ({ setTooltipContent }) => {
             position={position}
             handleMoveEnd={handleMoveEnd}
             stateData={stateData}
+            showShifts={showShifts}
           />
         </Col>
         <Col
@@ -77,12 +81,18 @@ const MapChart = ({ setTooltipContent }) => {
           style={{ backgroundColor: "lightgrey" }}
           className="layoutColumn"
         >
-          <h2 style={{ textAlign: "center" }}>{year}</h2>
+          <h2 style={{ textAlign: "center", paddingTop: "25px" }}>
+            {year} {showShifts && `- ${nextYear}`}
+          </h2>
 
-          <SelectYear year={year} setYear={setYear} />
-          <SelectYear year={nextYear} setYear={setNextYear} />
+          <Checkbox
+            checked={showShifts}
+            onChange={() => setShowShifts(!showShifts)}
+          >
+            Shifts?
+          </Checkbox>
+
           <SetRange low={low} high={high} setLow={setLow} setHigh={setHigh} />
-
           <button onClick={handleZoomIn}>
             <i className="fas fa-plus" />
           </button>
@@ -90,6 +100,11 @@ const MapChart = ({ setTooltipContent }) => {
           <button onClick={handleZoomOut}>
             <i className="fas fa-minus" />
           </button>
+          <div style={{ paddingTop: "10px" }}></div>
+          <Row className="layoutRow">
+            <SelectYear year={year} setYear={setYear} />
+            {showShifts && <SelectYear year={nextYear} setYear={setNextYear} />}
+          </Row>
         </Col>
       </Row>
     </>
