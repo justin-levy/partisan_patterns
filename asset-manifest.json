@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/partisan_patterns/static/css/main.3149c178.chunk.css",
-    "main.js": "/partisan_patterns/static/js/main.cf430568.chunk.js",
-    "main.js.map": "/partisan_patterns/static/js/main.cf430568.chunk.js.map",
+    "main.css": "/partisan_patterns/static/css/main.01f113ed.chunk.css",
+    "main.js": "/partisan_patterns/static/js/main.abcd2da8.chunk.js",
+    "main.js.map": "/partisan_patterns/static/js/main.abcd2da8.chunk.js.map",
     "runtime-main.js": "/partisan_patterns/static/js/runtime-main.8db81ef3.js",
     "runtime-main.js.map": "/partisan_patterns/static/js/runtime-main.8db81ef3.js.map",
     "static/css/2.6ed89a47.chunk.css": "/partisan_patterns/static/css/2.6ed89a47.chunk.css",
-    "static/js/2.54281d93.chunk.js": "/partisan_patterns/static/js/2.54281d93.chunk.js",
-    "static/js/2.54281d93.chunk.js.map": "/partisan_patterns/static/js/2.54281d93.chunk.js.map",
+    "static/js/2.af15b242.chunk.js": "/partisan_patterns/static/js/2.af15b242.chunk.js",
+    "static/js/2.af15b242.chunk.js.map": "/partisan_patterns/static/js/2.af15b242.chunk.js.map",
     "index.html": "/partisan_patterns/index.html",
     "static/css/2.6ed89a47.chunk.css.map": "/partisan_patterns/static/css/2.6ed89a47.chunk.css.map",
-    "static/css/main.3149c178.chunk.css.map": "/partisan_patterns/static/css/main.3149c178.chunk.css.map",
-    "static/js/2.54281d93.chunk.js.LICENSE.txt": "/partisan_patterns/static/js/2.54281d93.chunk.js.LICENSE.txt"
+    "static/css/main.01f113ed.chunk.css.map": "/partisan_patterns/static/css/main.01f113ed.chunk.css.map",
+    "static/js/2.af15b242.chunk.js.LICENSE.txt": "/partisan_patterns/static/js/2.af15b242.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8db81ef3.js",
     "static/css/2.6ed89a47.chunk.css",
-    "static/js/2.54281d93.chunk.js",
-    "static/css/main.3149c178.chunk.css",
-    "static/js/main.cf430568.chunk.js"
+    "static/js/2.af15b242.chunk.js",
+    "static/css/main.01f113ed.chunk.css",
+    "static/js/main.abcd2da8.chunk.js"
   ]
 }
