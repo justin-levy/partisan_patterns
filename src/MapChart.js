@@ -30,12 +30,22 @@ const MapChart = ({ setTooltipContent }) => {
         setNextData((prevData) => [{ ...prevData[0], alabama: counties }]);
       });
     }
+
     csv(`Iowa/President/${year}.csv`).then((counties) => {
       setData((prevData) => [{ ...prevData[0], iowa: counties }]);
     });
     if (year !== nextYear) {
       csv(`Iowa/President/${nextYear}.csv`).then((counties) => {
         setNextData((prevData) => [{ ...prevData[0], iowa: counties }]);
+      });
+    }
+
+    csv(`Virginia/President/${year}.csv`).then((counties) => {
+      setData((prevData) => [{ ...prevData[0], virginia: counties }]);
+    });
+    if (year !== nextYear) {
+      csv(`Virginia/President/${nextYear}.csv`).then((counties) => {
+        setNextData((prevData) => [{ ...prevData[0], virginia: counties }]);
       });
     }
   }, [year, nextYear]);

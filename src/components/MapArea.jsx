@@ -27,6 +27,10 @@ const stateMatch = (data, geoId) => {
     if (geoId[1] === "9") {
       return findMatch(data[0].iowa, geoId);
     }
+  } else if (geoId[0] === "5") {
+    if (geoId[1] === "1") {
+      return findMatch(data[0].virginia, geoId);
+    }
   }
   return;
 };
