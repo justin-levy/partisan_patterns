@@ -19,6 +19,14 @@ const MapChart = ({ setTooltipContent }) => {
   const [high, setHigh] = useState(100);
 
   useEffect(() => {
+    if (showShifts && year > nextYear) {
+      const temp = year;
+      setYear(nextYear);
+      setNextYear(temp);
+    }
+  }, [year, nextYear, showShifts]);
+
+  useEffect(() => {
     setData([{}]);
     setNextData([{}]);
 
