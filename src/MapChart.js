@@ -48,6 +48,15 @@ const MapChart = ({ setTooltipContent }) => {
       });
     }
 
+    csv(`Louisiana/President/${year}.csv`).then((counties) => {
+      setData((prevData) => [{ ...prevData[0], louisiana: counties }]);
+    });
+    if (year !== nextYear) {
+      csv(`Louisiana/President/${nextYear}.csv`).then((counties) => {
+        setNextData((prevData) => [{ ...prevData[0], louisiana: counties }]);
+      });
+    }
+
     csv(`Virginia/President/${year}.csv`).then((counties) => {
       setData((prevData) => [{ ...prevData[0], virginia: counties }]);
     });
