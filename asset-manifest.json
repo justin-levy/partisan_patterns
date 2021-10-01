@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/partisan_patterns/static/css/main.01f113ed.chunk.css",
-    "main.js": "/partisan_patterns/static/js/main.2d633c79.chunk.js",
-    "main.js.map": "/partisan_patterns/static/js/main.2d633c79.chunk.js.map",
+    "main.css": "/partisan_patterns/static/css/main.b3bc21b4.chunk.css",
+    "main.js": "/partisan_patterns/static/js/main.56ee6164.chunk.js",
+    "main.js.map": "/partisan_patterns/static/js/main.56ee6164.chunk.js.map",
     "runtime-main.js": "/partisan_patterns/static/js/runtime-main.8db81ef3.js",
     "runtime-main.js.map": "/partisan_patterns/static/js/runtime-main.8db81ef3.js.map",
     "static/css/2.6ed89a47.chunk.css": "/partisan_patterns/static/css/2.6ed89a47.chunk.css",
@@ -10,14 +10,14 @@
     "static/js/2.4c2bde7f.chunk.js.map": "/partisan_patterns/static/js/2.4c2bde7f.chunk.js.map",
     "index.html": "/partisan_patterns/index.html",
     "static/css/2.6ed89a47.chunk.css.map": "/partisan_patterns/static/css/2.6ed89a47.chunk.css.map",
-    "static/css/main.01f113ed.chunk.css.map": "/partisan_patterns/static/css/main.01f113ed.chunk.css.map",
+    "static/css/main.b3bc21b4.chunk.css.map": "/partisan_patterns/static/css/main.b3bc21b4.chunk.css.map",
     "static/js/2.4c2bde7f.chunk.js.LICENSE.txt": "/partisan_patterns/static/js/2.4c2bde7f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8db81ef3.js",
     "static/css/2.6ed89a47.chunk.css",
     "static/js/2.4c2bde7f.chunk.js",
-    "static/css/main.01f113ed.chunk.css",
-    "static/js/main.2d633c79.chunk.js"
+    "static/css/main.b3bc21b4.chunk.css",
+    "static/js/main.56ee6164.chunk.js"
   ]
 }
