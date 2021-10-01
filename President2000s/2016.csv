@@ -1,4 +1,4 @@
-year,state,county_name,county_fips,candidate,party,candidatevotes,totalvotes,mode
+year,state,county_name,fips,candidate,party,candidatevotes,totalvotes,mode
 2016,ALABAMA,AUTAUGA,1001,HILLARY CLINTON,DEMOCRAT,5936,24973,TOTAL
 2016,ALABAMA,AUTAUGA,1001,DONALD TRUMP,REPUBLICAN,18172,24973,TOTAL
 2016,ALABAMA,AUTAUGA,1001,OTHER,OTHER,865,24973,TOTAL

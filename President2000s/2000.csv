@@ -1,4 +1,4 @@
-year,state,county_name,county_fips,candidate,party,candidatevotes,totalvotes,mode
+year,state,county_name,fips,candidate,party,candidatevotes,totalvotes,mode
 2000,ALABAMA,AUTAUGA,1001,AL GORE,DEMOCRAT,4942,17208,TOTAL
 2000,ALABAMA,AUTAUGA,1001,GEORGE W. BUSH,REPUBLICAN,11993,17208,TOTAL
 2000,ALABAMA,AUTAUGA,1001,RALPH NADER,GREEN,160,17208,TOTAL

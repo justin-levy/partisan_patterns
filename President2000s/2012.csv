@@ -1,4 +1,4 @@
-year,state,county_name,county_fips,candidate,party,candidatevotes,totalvotes,mode
+year,state,county_name,fips,candidate,party,candidatevotes,totalvotes,mode
 2012,ALABAMA,AUTAUGA,1001,BARACK OBAMA,DEMOCRAT,6363,23932,TOTAL
 2012,ALABAMA,AUTAUGA,1001,MITT ROMNEY,REPUBLICAN,17379,23932,TOTAL
 2012,ALABAMA,AUTAUGA,1001,OTHER,OTHER,190,23932,TOTAL

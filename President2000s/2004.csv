@@ -1,4 +1,4 @@
-year,state,county_name,county_fips,candidate,party,candidatevotes,totalvotes,mode
+year,state,county_name,fips,candidate,party,candidatevotes,totalvotes,mode
 2004,ALABAMA,AUTAUGA,1001,JOHN KERRY,DEMOCRAT,4758,20081,TOTAL
 2004,ALABAMA,AUTAUGA,1001,GEORGE W. BUSH,REPUBLICAN,15196,20081,TOTAL
 2004,ALABAMA,AUTAUGA,1001,OTHER,OTHER,127,20081,TOTAL

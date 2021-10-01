@@ -1,4 +1,4 @@
-year,state,county_name,county_fips,candidate,party,candidatevotes,totalvotes,mode
+year,state,county_name,fips,candidate,party,candidatevotes,totalvotes,mode
 2008,ALABAMA,AUTAUGA,1001,BARACK OBAMA,DEMOCRAT,6093,23641,TOTAL
 2008,ALABAMA,AUTAUGA,1001,JOHN MCCAIN,REPUBLICAN,17403,23641,TOTAL
 2008,ALABAMA,AUTAUGA,1001,OTHER,OTHER,145,23641,TOTAL
