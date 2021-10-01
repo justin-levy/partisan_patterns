@@ -65,6 +65,17 @@ const MapChart = ({ setTooltipContent }) => {
         setNextData((prevData) => [{ ...prevData[0], virginia: counties }]);
       });
     }
+
+    csv(`President2000s/${year}.csv`).then((counties) => {
+      setData((prevData) => [{ ...prevData[0], allPresidential: counties }]);
+    });
+    if (year !== nextYear) {
+      csv(`President2000s/${nextYear}.csv`).then((counties) => {
+        setNextData((prevData) => [
+          { ...prevData[0], allPresidential: counties },
+        ]);
+      });
+    }
   }, [year, nextYear]);
 
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });

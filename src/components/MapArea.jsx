@@ -15,6 +15,11 @@ const findMatch = (data, geoId) => {
   return data.find((s) => parseInt(s.fips) === parseInt(geoId));
 };
 
+// const findVoteMatch = (data, geoId) => {
+//   if (!data) return;
+//   return data.find((s) => parseInt(s.fips) === parseInt(geoId));
+// };
+
 // use state name instead of dealing with fips
 const stateMatch = (data, geoId) => {
   if (!data) return;
@@ -36,7 +41,23 @@ const stateMatch = (data, geoId) => {
       return findMatch(data[0].virginia, geoId);
     }
   }
-  return;
+  return findMatch(data[0].allPresidential, geoId);
+
+  // return findMatch(data[0].allPresidential, geoId);
+};
+
+const getVoteData = (obj) => {
+  if (!obj) return undefined;
+  if (obj.data) {
+    return obj.data;
+  }
+  if (!obj.REPUBLICAN) return undefined;
+  if (!obj.DEMOCRAT) return undefined;
+
+  const rep = parseInt(obj.REPUBLICAN);
+  const dem = parseInt(obj.DEMOCRAT);
+
+  return (100 * (dem - rep)) / (dem + rep);
 };
 
 const tooltipStyle = {
@@ -84,15 +105,25 @@ const MapArea = (props) => {
               const next = stateMatch(nextData, geo.id);
 
               // redo this section to use checkbox
+              // const geoData = showShifts
+              //   ? cur
+              //     ? next
+              //       ? next.data - cur.data
+              //       : // : cur.data
+              //         undefined
+              //     : undefined
+              //   : cur
+              //   ? cur.data
+              //   : undefined;
+
               const geoData = showShifts
                 ? cur
                   ? next
-                    ? next.data - cur.data
-                    : // : cur.data
-                      undefined
+                    ? getVoteData(next) - getVoteData(cur)
+                    : undefined
                   : undefined
                 : cur
-                ? cur.data
+                ? getVoteData(cur)
                 : undefined;
 
               return (

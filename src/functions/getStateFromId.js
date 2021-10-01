@@ -1,4 +1,5 @@
 const getStateFromId = (fips) => {
+  // console.log(fips.length);
   if (fips[0] === "0") {
     // O
     if (fips[1] === "1") {
