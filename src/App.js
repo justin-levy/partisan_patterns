@@ -6,7 +6,7 @@ import MapChart from "./MapChart";
 function App() {
   const [content, setContent] = useState("");
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
       <MapChart setTooltipContent={setContent} />
       <ReactTooltip>{content}</ReactTooltip>
     </div>

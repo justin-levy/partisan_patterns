@@ -80,6 +80,7 @@ const MapArea = (props) => {
     handleMoveEnd,
     stateData,
     showShifts,
+    limitState = false,
   } = props;
 
   const colorScale = scaleLinear()
@@ -100,6 +101,10 @@ const MapArea = (props) => {
             geographies.map((geo) => {
               const countyName = geo.properties.name;
               const stateName = getStateFromId(geo.id);
+
+              if (limitState && stateName !== limitState) {
+                return;
+              }
 
               const cur = stateMatch(data, geo.id);
               const next = stateMatch(nextData, geo.id);

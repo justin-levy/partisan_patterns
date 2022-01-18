@@ -17,3 +17,9 @@
 .btn.btn-primary {
   height: 32px;
 }
+
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}

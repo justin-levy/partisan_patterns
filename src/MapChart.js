@@ -98,10 +98,10 @@ const MapChart = ({ setTooltipContent }) => {
 
   return (
     <>
-      <Row className="layoutRow">
+      <Row className="layoutRow" style={{ overflow: "hidden" }}>
         <Col
           md={10}
-          style={{ outlineColor: "red", outline: "1px" }}
+          style={{ outlineColor: "red", outline: "1px", overflow: "hidden" }}
           className="layoutColumn"
         >
           <MapArea
@@ -112,11 +112,12 @@ const MapChart = ({ setTooltipContent }) => {
             handleMoveEnd={handleMoveEnd}
             stateData={stateData}
             showShifts={showShifts}
+            limitState={false}
           />
         </Col>
         <Col
           md={2}
-          style={{ backgroundColor: "lightgrey" }}
+          style={{ backgroundColor: "lightgrey", overflowY: "auto" }}
           className="layoutColumn"
         >
           <h2 style={{ textAlign: "center", paddingTop: "25px" }}>
